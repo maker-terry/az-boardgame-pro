@@ -44,15 +44,20 @@ export default function SearchModal({
 
         <div className="space-y-2">
           {results.map((game) => (
-            <div
-              key={game.gameId}
-              onClick={() => onSelect(game)}
-              className="p-2 border rounded hover:bg-gray-100 cursor-pointer"
-            >
-              {game.name}
-            </div>
-          ))}
-        </div>
+          <div
+            key={game.gameId}
+            onClick={() => onSelect(game)}
+            className="flex items-center gap-3 p-2 border rounded hover:bg-gray-100 cursor-pointer"
+          >
+            <img
+              src={game.thumbnail}
+              alt={game.name}
+              className="w-12 h-12 object-cover rounded"
+            />
+            <div className="text-sm">{game.name}</div>
+          </div>
+        ))}
+      </div>
 
         <button
           onClick={onClose}
